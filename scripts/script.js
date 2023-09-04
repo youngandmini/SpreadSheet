@@ -24,11 +24,6 @@ exportButton.addEventListener('click', () => {
         newTable.appendChild(newRow);
     }
 
-    // 문서에 새로운 테이블 추가
-    // document.body.appendChild(newTable);
-
-
-
     /* table로 worksheet 생성 */
     const worksheet = XLSX.utils.table_to_book(newTable, {sheet: 'sheet-1'});
     /*
@@ -36,3 +31,4 @@ exportButton.addEventListener('click', () => {
     */
     XLSX.writeFile(worksheet, 'MyTable.xls');
 });
+
