@@ -1,6 +1,8 @@
 
 const exportButton = document.getElementById("button_export");
 const table = document.getElementById("sheet");
+const currentCellPosition = document.getElementById("current_cell_position");
+
 
 
 exportButton.addEventListener('click', () => {
@@ -50,11 +52,16 @@ function focusOnCell(event) {
     const rowIndex = event.currentTarget.paramRow;
     const colIndex = event.currentTarget.paramCol;
 
-    table.rows[0].cells[colIndex].style.backgroundColor = "#AED8E6";
-    table.rows[0].cells[colIndex].style.color = "white";
+    const colTableHeader = table.rows[0].cells[colIndex];
+    const rowTableHeader = table.rows[rowIndex].cells[0];
 
-    table.rows[rowIndex].cells[0].style.backgroundColor = "#AED8E6";
-    table.rows[rowIndex].cells[0].style.color = "white";
+    currentCellPosition.textContent = colTableHeader.textContent + rowTableHeader.textContent;
+
+    colTableHeader.style.backgroundColor = "#AED8E6";
+    colTableHeader.style.color = "white";
+
+    rowTableHeader.style.backgroundColor = "#AED8E6";
+    rowTableHeader.style.color = "white";
 }
 
 // 내부 cell에서 (blur)focusOut 됐을 때 사용
@@ -64,9 +71,14 @@ function blurOutCell(event) {
     const rowIndex = event.currentTarget.paramRow;
     const colIndex = event.currentTarget.paramCol;
 
-    table.rows[0].cells[colIndex].style.backgroundColor = "#DEDEDE";
-    table.rows[0].cells[colIndex].style.color = "black";
+    const colTableHeader = table.rows[0].cells[colIndex];
+    const rowTableHeader = table.rows[rowIndex].cells[0];
 
-    table.rows[rowIndex].cells[0].style.backgroundColor = "#DEDEDE";
-    table.rows[rowIndex].cells[0].style.color = "black";
+    currentCellPosition.textContent = "";
+
+    colTableHeader.style.backgroundColor = "#DEDEDE";
+    colTableHeader.style.color = "black";
+
+    rowTableHeader.style.backgroundColor = "#DEDEDE";
+    rowTableHeader.style.color = "black";
 }
