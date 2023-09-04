@@ -36,7 +36,7 @@ td input {
     color: white;
     font-size: 20px;
     padding: 10px 10px 10px 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     cursor: pointer;
     border: none;
 
@@ -45,4 +45,8 @@ td input {
 
 #button_export:hover {
     background-color: #80ab87;
+}
+
+.cell_position_container {
+    margin-bottom: 5px;
 }
