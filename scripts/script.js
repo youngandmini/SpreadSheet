@@ -1,6 +1,5 @@
 
 const exportButton = document.getElementById("button_export");
-
 const table = document.getElementById("sheet");
 
 
@@ -32,3 +31,20 @@ exportButton.addEventListener('click', () => {
     XLSX.writeFile(worksheet, 'MyTable.xls');
 });
 
+
+for (let rowIndex = 1; rowIndex < table.rows.length; rowIndex++) {
+    for (let colIndex = 1; colIndex < table.rows[rowIndex].cells.length; colIndex++) {
+        table.rows[rowIndex].cells[colIndex].firstChild.addEventListener("focus", focusOnCell);
+        table.rows[rowIndex].cells[colIndex].firstChild.addEventListener("blur", blurOutCell);
+    }
+}
+
+// 내부 cell에 focus 됐을 때 사용
+function focusOnCell(event) {
+    console.log("cursor on");
+}
+
+// 내부 cell에서 (blur)focusOut 됐을 때 사용
+function blurOutCell(event) {
+    console.log("cursor off");
+}
