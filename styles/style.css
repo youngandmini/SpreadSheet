@@ -28,3 +28,20 @@ td input {
 
     font-size: 30px;
 }
+
+
+#button_export {
+    background-color: #08AB47;
+    color: white;
+    font-size: 20px;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: none;
+
+    transition: background-color 0.3s linear;
+}
+
+#button_export:hover {
+    background-color: #80ab87;
+}
